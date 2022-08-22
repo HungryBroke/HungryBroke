@@ -1,0 +1,33 @@
+version: '3'
+
+services:
+  django:
+    build:
+      context: ./backend
+      dockerfile: ./docker-compose/django/Dockerfile
+      args:
+        - UID=${UID}
+        - GID=${GID}
+    container_name: narwhal_django
+    platform: linux/x86_64
+    volumes:
+      - ./backend:/app:z
+    env_file:
+      - ./backend/.envs/.local/.django
+      - ./backend/.envs/.local/.overrides
+    ports:
+      - "8000:8000"
+    command: /start
+    stdin_open: true
+    tty: true
+    depends_on:
+      - postgres
+
+  postgres:
+    image: postgres:latest
+    ports:
+      - "5432:5432"
+    environment:
+        - POSTGRES_USER=hbpostgres
+        - POSTGRES_PASSWORD=hbpostgres
+        - POSTGRES_DB=hbdb

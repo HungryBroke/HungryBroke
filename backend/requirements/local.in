@@ -1,4 +1,0 @@
--r base.in
-django-debug-toolbar
-pytest
-pip-tools

@@ -128,4 +128,6 @@ dmypy.json
 # Pyre type checker
 .pyre/
 
+# Self added stuff
 .idea/
+backend/.envs/.local/.overrides

@@ -13,4 +13,3 @@ Base requirements file. Represented by [base.in](base.in).
 
 What you need to run the project locally. Represented by [local.in](local.in).
 Inherits from [base.in](base.in).
-

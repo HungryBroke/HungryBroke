@@ -1,2 +1,0 @@
--r base.in
-django-debug-toolbar

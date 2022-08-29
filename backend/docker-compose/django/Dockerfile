@@ -6,7 +6,6 @@ FROM python:${PYTHON_VERSION} as python
 # Python `build` stage
 FROM python as python-build-stage
 
-ARG BUILD_ENVIRONMENT=local
 
 # Install apt packages
 RUN apt-get update && apt-get install --no-install-recommends -y \
@@ -19,20 +18,17 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
 COPY ./requirements .
 
 # Create Python Dependency and Sub-Dependency Wheels.
-RUN pip wheel --wheel-dir /usr/src/app/wheels  \
-  -r ${BUILD_ENVIRONMENT}.txt
+RUN pip wheel --wheel-dir /usr/src/app/wheels -r base.txt
 
 # Python `run` stage
 FROM python as python-run-stage
 
-ARG BUILD_ENVIRONMENT=local
 ARG APP_HOME=/app
 ARG UID
 ARG GID
 
 ENV PYTHONUNBUFFERED 1
 ENV PYTHONDONTWRITEBYTECODE 1
-ENV BUILD_ENV ${BUILD_ENVIRONMENT}
 ENV UID=${UID:-1000}
 ENV GID=${GID:-1000}
 

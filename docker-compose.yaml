@@ -12,9 +12,11 @@ services:
     platform: linux/x86_64
     volumes:
       - ./backend:/app:z
+    environment:
+      - COLUMNS
     env_file:
-      - ./backend/.envs/.local/.django
-      - ./backend/.envs/.local/.overrides
+      - ./backend/.envs/.django
+      - ./backend/.envs/.overrides
     ports:
       - "8000:8000"
     command: /start

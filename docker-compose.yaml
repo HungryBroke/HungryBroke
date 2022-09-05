@@ -12,6 +12,8 @@ services:
     platform: linux/x86_64
     volumes:
       - ./backend:/app:z
+    environment:
+      - COLUMNS
     env_file:
       - ./backend/.envs/.django
       - ./backend/.envs/.overrides

@@ -130,4 +130,4 @@ dmypy.json
 
 # Self added stuff
 .idea/
-backend/.envs/.local/.overrides
+backend/.envs/.overrides

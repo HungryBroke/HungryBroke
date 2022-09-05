@@ -3,3 +3,4 @@ psycopg2
 django-debug-toolbar
 pytest
 pip-tools
+rich

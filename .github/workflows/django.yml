@@ -27,5 +27,6 @@ jobs:
         python -m pip install --upgrade pip
         pip install -r backend/requirements/base.txt
     - name: Run Tests
+      working-directory: ./backend
       run: |
         pytest

@@ -1,9 +1,11 @@
 from io import StringIO
 
+import pytest
 from django.core.management import call_command
 from django.test import TestCase
 
 
+@pytest.mark.django_db
 class PendingMigrationsTests(TestCase):
     def test_no_pending_migrations(self):
         out = StringIO()

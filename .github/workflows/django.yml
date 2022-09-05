@@ -40,4 +40,4 @@ jobs:
       - name: Run Tests
         working-directory: ./backend
         run: |
-          pytest
+          DJANGO_SETTINGS_MODULE=HungryBroke.settings.ci pytest

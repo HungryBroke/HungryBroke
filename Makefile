@@ -3,7 +3,7 @@ define help_msg
 Usage:
 	compile-requirements:    compile requirements in Docker
 	run-project:             start project in Docker
-	lint:                    format code with black and isort
+	lint:                    format code with black and isort in local
 
 endef
 export help_msg
@@ -19,4 +19,4 @@ run-project:
 
 lint:
 	python -m black backend --target-version py310
-	python -m isort backend
+	python -m isort backend --profile=black

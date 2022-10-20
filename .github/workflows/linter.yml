@@ -1,0 +1,26 @@
+name: "Linter"
+
+on:
+  pull_request:
+
+jobs:
+  linters:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: "Checkout code"
+        uses: actions/checkout@v3
+      - name: "Setup python"
+        uses: actions/setup-python@v2
+        with:
+          python-version: "3.10"
+      - name: "Install dependencies"
+        run: |
+          python -m pip install --upgrade pip
+          python -m pip install black==22.6.0 isort==5.10.1
+      - name: "Isort check"
+        run: isort . --check --profile=black
+        working-directory: backend/
+      - name: "Black check"
+        run: black . --check --target-version py310
+        working-directory: backend/

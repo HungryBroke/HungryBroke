@@ -3,7 +3,7 @@ default_language_version:
   python: python3
 
 ci:
-#  https://pre-commit.ci/
+  #  https://pre-commit.ci/
   autofix_prs: true
 
 repos:
@@ -38,7 +38,7 @@ repos:
       - id: flake8
         name: flake8-backend
         files: backend/
-
+        args: [ --config, backup.setup.cfg ]
   - repo: https://github.com/asottile/pyupgrade
     rev: v2.37.2
     hooks:

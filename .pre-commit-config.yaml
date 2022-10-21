@@ -1,4 +1,4 @@
-default_stages: [ commit, push ]
+default_stages: [commit, push]
 default_language_version:
   python: python3
 
@@ -12,7 +12,6 @@ repos:
     hooks:
       - id: trailing-whitespace
       - id: end-of-file-fixer
-      - id: check-yaml
       - id: check-toml
       - id: check-added-large-files
       - id: debug-statements
@@ -38,15 +37,19 @@ repos:
       - id: flake8
         name: flake8-backend
         files: backend/
-        args: [ '--config', 'backend/setup.cfg' ]
+        args: ['--config', 'backend/setup.cfg']
   - repo: https://github.com/asottile/pyupgrade
     rev: v2.37.2
     hooks:
       - id: pyupgrade
-        args: [ --py310-plus ]
+        args: [--py310-plus]
 
   - repo: https://github.com/adamchainz/django-upgrade
     rev: 1.7.0
     hooks:
       - id: django-upgrade
-        args: [ --target-version, "4.0" ]
+        args: [--target-version, "4.0"]
+  - repo: https://github.com/adrienverge/yamllint
+    rev: v1.26.1
+    hooks:
+      - id: yamllint

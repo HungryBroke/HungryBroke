@@ -31,7 +31,6 @@ repos:
       - id: isort
         name: isort-backend
         files: backend/
-        args: [ "--profile=black" ]
 
   - repo: https://github.com/pycqa/flake8
     rev: 4.0.1

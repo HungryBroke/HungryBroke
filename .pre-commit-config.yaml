@@ -38,7 +38,7 @@ repos:
       - id: flake8
         name: flake8-backend
         files: backend/
-        args: [ --config, backup.setup.cfg ]
+        args: [ '--config', 'backend/setup.cfg' ]
   - repo: https://github.com/asottile/pyupgrade
     rev: v2.37.2
     hooks:

@@ -9,3 +9,4 @@ run-project:
 initialize-repository:
 	# Steps to run before making your first commit
 	pre-commit install --hook-type commit-msg --hook-type pre-push
+	git update-index --assume-unchanged backend/.envs/.overrides

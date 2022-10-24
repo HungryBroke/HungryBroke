@@ -1,4 +1,4 @@
-default_stages: [commit, push]
+default_stages: [ commit, push ]
 default_language_version:
   python: python3
 
@@ -19,7 +19,7 @@ repos:
       - id: check-merge-conflict
 
   - repo: https://github.com/psf/black
-    rev: 22.6.0
+    rev: 22.10.0
     hooks:
       - id: black
         name: black-backend
@@ -33,20 +33,27 @@ repos:
         files: backend/
 
   - repo: https://github.com/pycqa/flake8
-    rev: 4.0.1
+    rev: 5.0.4
     hooks:
       - id: flake8
         name: flake8-backend
         files: backend/
-        args: ['--config', 'backend/setup.cfg']
+        args: [ '--config', 'backend/setup.cfg' ]
   - repo: https://github.com/asottile/pyupgrade
-    rev: v2.37.2
+    rev: v3.1.0
     hooks:
       - id: pyupgrade
-        args: [--py310-plus]
+        args: [ --py310-plus ]
 
   - repo: https://github.com/adamchainz/django-upgrade
-    rev: 1.7.0
+    rev: 1.10.0
     hooks:
       - id: django-upgrade
-        args: [--target-version, "4.0"]
+        args: [ --target-version, "4.0" ]
+
+  - repo: https://github.com/commitizen-tools/commitizen
+    rev: v2.35.0
+    hooks:
+      - id: commitizen
+      - id: commitizen-branch
+        stages: [ push ]

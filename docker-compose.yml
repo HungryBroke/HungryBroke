@@ -6,8 +6,8 @@ services:
       context: ./backend
       dockerfile: ./docker-compose/django/Dockerfile
       args:
-        - UID=${UID}
-        - GID=${GID}
+        - UID=${UID:-1000}
+        - GID=${GID:-1000}
     container_name: narwhal_django
     platform: linux/x86_64
     volumes:
@@ -19,7 +19,6 @@ services:
       - ./backend/.envs/.overrides
     ports:
       - "8000:8000"
-    command: /start
     stdin_open: true
     tty: true
     depends_on:

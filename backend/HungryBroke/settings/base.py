@@ -41,9 +41,7 @@ DJANGO_APPS = [
     "django.contrib.staticfiles",
 ]
 
-THIRD_PARTY_APPS = [
-    "graphene_django",
-]
+THIRD_PARTY_APPS = []
 
 LOCAL_APPS = ["food.apps.FoodConfig", "account.apps.AccountConfig"]
 

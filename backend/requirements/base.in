@@ -1,5 +1,4 @@
 django
-graphene-django
 psycopg2
 django-debug-toolbar
 pytest
@@ -7,3 +6,4 @@ pytest-django
 pip-tools
 rich
 pillow
+strawberry-graphql[debug-server]

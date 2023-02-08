@@ -7,3 +7,5 @@ pip-tools
 rich
 pillow
 strawberry-graphql[debug-server]
+strawberry-graphql-django
+

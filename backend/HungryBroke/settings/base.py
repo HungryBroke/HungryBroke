@@ -41,7 +41,9 @@ DJANGO_APPS = [
     "django.contrib.staticfiles",
 ]
 
-THIRD_PARTY_APPS = []
+THIRD_PARTY_APPS = [
+    "strawberry.django",
+]
 
 LOCAL_APPS = ["food.apps.FoodConfig", "account.apps.AccountConfig"]
 

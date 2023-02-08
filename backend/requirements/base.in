@@ -6,6 +6,9 @@ pytest-django
 pip-tools
 rich
 pillow
+
+factory-boy
+
+
 strawberry-graphql[debug-server]
 strawberry-graphql-django
-

@@ -9,7 +9,7 @@ class Item:
     id: auto
     amount: auto
     unit: auto
-    ingredient: 'Ingredient'
+    ingredient: "Ingredient"
 
 
 @strawberry.django.type(models.Ingredient)

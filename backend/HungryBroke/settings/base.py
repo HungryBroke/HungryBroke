@@ -42,7 +42,7 @@ DJANGO_APPS = [
 ]
 
 THIRD_PARTY_APPS = [
-    "graphene_django",
+    "strawberry.django",
 ]
 
 LOCAL_APPS = ["food.apps.FoodConfig", "account.apps.AccountConfig"]

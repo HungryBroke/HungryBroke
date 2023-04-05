@@ -1,19 +1,13 @@
-import graphene
-from django.contrib.auth.models import User
-from graphene_django.types import DjangoObjectType
+import strawberry
+
+from food.types import Ingredient, Item, Recipe
 
 
-class UserType(DjangoObjectType):
-    class Meta:
-        model = User
-        exclude = ("password",)
+@strawberry.type
+class Query:
+    items: list[Item] = strawberry.django.field()
+    ingredients: list[Ingredient] = strawberry.django.field()
+    recipes: list[Recipe] = strawberry.django.field()
 
 
-class Query(graphene.ObjectType):
-    users = graphene.List(UserType)
-
-    def resolve_users(self, info, **kwargs):
-        return User.objects.all()
-
-
-schema = graphene.Schema(query=Query)
+schema = strawberry.Schema(query=Query)

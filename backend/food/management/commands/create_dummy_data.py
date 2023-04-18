@@ -64,6 +64,4 @@ class Command(BaseCommand):
         )
 
     def create_profile(self, user: str, password) -> ProfileFactory:
-        return ProfileFactory(
-            user__username=user, user__password=password, user__is_staff=True
-        )
+        return ProfileFactory(user__username=user, user__password=password, user__is_staff=True)

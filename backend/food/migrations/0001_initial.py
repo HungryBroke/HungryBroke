@@ -57,9 +57,7 @@ class Migration(migrations.Migration):
                 ),
                 (
                     "liked_by",
-                    models.ManyToManyField(
-                        related_name="liked_recipes", to="account.profile"
-                    ),
+                    models.ManyToManyField(related_name="liked_recipes", to="account.profile"),
                 ),
             ],
         ),
@@ -78,9 +76,7 @@ class Migration(migrations.Migration):
                 ("amount", models.PositiveIntegerField()),
                 (
                     "unit",
-                    models.CharField(
-                        choices=[("g", "Gram"), ("mL", "Milliliter")], max_length=3
-                    ),
+                    models.CharField(choices=[("g", "Gram"), ("mL", "Milliliter")], max_length=3),
                 ),
                 (
                     "ingredient",

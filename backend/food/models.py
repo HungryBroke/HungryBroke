@@ -10,9 +10,7 @@ class Recipe(models.Model):
     """
 
     name = models.CharField(max_length=255)
-    author = models.ForeignKey(
-        Profile, on_delete=models.SET_NULL, null=True, blank=True
-    )
+    author = models.ForeignKey(Profile, on_delete=models.SET_NULL, null=True, blank=True)
     liked_by = models.ManyToManyField(Profile, related_name="liked_recipes")
 
     active_time = models.DurationField(

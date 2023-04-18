@@ -18,9 +18,7 @@ class RecipeTestCase(TestCase):
 
 class IngredientTestCase(TestCase):
     def setUp(self):
-        Ingredient.objects.create(
-            name="test-ingredient", description="test-description"
-        )
+        Ingredient.objects.create(name="test-ingredient", description="test-description")
 
     def test_ingredient(self):
         # Smoke test

@@ -21,8 +21,7 @@ repos:
       - id: check-merge-conflict
 
   - repo: https://github.com/psf/black
-    # Applies consistent code formatting.
-    rev: 23.1.0
+    rev: 23.3.0
     hooks:
       - id: black
         name: black-backend
@@ -65,7 +64,6 @@ repos:
 
 
   - repo: https://github.com/adamchainz/django-upgrade
-    # Django only!
     rev: 1.13.0
     hooks:
       - id: django-upgrade
@@ -73,7 +71,7 @@ repos:
 
 
   - repo: https://github.com/commitizen-tools/commitizen
-    rev: v2.40.0
+    rev: v2.42.1
     hooks:
       - id: commitizen
       - id: commitizen-branch

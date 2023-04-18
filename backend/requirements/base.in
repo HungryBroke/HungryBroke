@@ -1,14 +1,17 @@
 django
 psycopg2
 django-debug-toolbar
-pytest
-pytest-django
+
 pip-tools
 rich
 pillow
 
 factory-boy
 
+pytest
+pytest-django
+pytest-flakefinder
+pytest-random-order
 
 strawberry-graphql[debug-server]
 strawberry-graphql-django

@@ -41,7 +41,7 @@ repos:
 
   - repo: https://github.com/charliermarsh/ruff-pre-commit
     # A flake8 replacement, that uses Rust underwater.
-    rev: v0.0.261
+    rev: v0.0.272
     hooks:
       - id: ruff
         name: lint-backend
@@ -50,13 +50,13 @@ repos:
 
   - repo: https://github.com/asottile/pyupgrade
     # Automatically updates old python structures to new ones
-    rev: v3.3.1
+    rev: v3.7.0
     hooks:
       - id: pyupgrade
         args: [ --py310-plus ]
 
   - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: 'v1.2.0'
+    rev: 'v1.3.0'
     hooks:
       - id: mypy
         name: mypy-backend
@@ -64,14 +64,14 @@ repos:
 
 
   - repo: https://github.com/adamchainz/django-upgrade
-    rev: 1.13.0
+    rev: 1.14.0
     hooks:
       - id: django-upgrade
         args: [ --target-version, "4.2" ]
 
 
   - repo: https://github.com/commitizen-tools/commitizen
-    rev: v2.42.1
+    rev: 3.3.0
     hooks:
       - id: commitizen
       - id: commitizen-branch

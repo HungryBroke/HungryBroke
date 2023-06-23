@@ -49,8 +49,15 @@ COPY --from=python-build-stage /usr/src/app/wheels  /wheels/
 
 # Add custom group and user that use same id as your system,
 # so that you can create files in containers without permission errors
-RUN addgroup --system --gid ${GID} django && adduser --uid ${UID} --system --ingroup django django
+RUN addgroup --system --gid ${GID} django && adduser --uid ${UID} --system --ingroup django --home /home/django django && mkdir -p /home/django/.local/bin
 
+
+# Set HOME environment variable
+ENV HOME=/home/django
+ENV PATH="/home/django/.local/bin:${PATH}"
+
+# Ensure cache directory and local directory exists for the django user
+RUN mkdir -p /home/django/.cache /home/django/.local && chown -R django:django /home/django/.cache /home/django/.local
 USER django
 
 RUN pip install --no-cache-dir --no-index --find-links=/wheels/ /wheels/*
@@ -60,11 +67,11 @@ RUN rm -rf /wheels/
 
 USER django
 
-COPY --chown=django:django --chmod=755 ./docker-compose/django/entrypoint.sh /entrypoint
+COPY --chown=django:django --chmod=755 ./docker-compose/django/entrypoint.sh /entrypoint.sh
 
 # copy application code to WORKDIR
 COPY --chown=django:django . ${APP_HOME}
 
 # Add local path to path, so we can run things like pytest.
 ENV PATH="$PATH:/home/django/.local/bin/"
-ENTRYPOINT ["/entrypoint"]
+ENTRYPOINT ["sh", "/entrypoint.sh"]

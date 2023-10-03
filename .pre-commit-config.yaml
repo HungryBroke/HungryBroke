@@ -21,7 +21,7 @@ repos:
       - id: check-merge-conflict
 
   - repo: https://github.com/psf/black
-    rev: 23.3.0
+    rev: 23.9.1
     hooks:
       - id: black
         name: black-backend
@@ -39,9 +39,9 @@ repos:
         args: [ "--settings-path", "backend/pyproject.toml", ]
 
 
-  - repo: https://github.com/charliermarsh/ruff-pre-commit
+  - repo: https://github.com/astral-sh/ruff-pre-commit
     # A flake8 replacement, that uses Rust underwater.
-    rev: v0.0.272
+    rev: v0.0.292
     hooks:
       - id: ruff
         name: lint-backend
@@ -50,13 +50,13 @@ repos:
 
   - repo: https://github.com/asottile/pyupgrade
     # Automatically updates old python structures to new ones
-    rev: v3.7.0
+    rev: v3.14.0
     hooks:
       - id: pyupgrade
         args: [ --py310-plus ]
 
   - repo: https://github.com/pre-commit/mirrors-mypy
-    rev: 'v1.3.0'
+    rev: 'v1.5.1'
     hooks:
       - id: mypy
         name: mypy-backend
@@ -64,14 +64,14 @@ repos:
 
 
   - repo: https://github.com/adamchainz/django-upgrade
-    rev: 1.14.0
+    rev: 1.15.0
     hooks:
       - id: django-upgrade
         args: [ --target-version, "4.2" ]
 
 
   - repo: https://github.com/commitizen-tools/commitizen
-    rev: 3.3.0
+    rev: 3.10.0
     hooks:
       - id: commitizen
       - id: commitizen-branch

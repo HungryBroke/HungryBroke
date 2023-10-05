@@ -1,6 +1,6 @@
 from django.contrib import admin
 
-from food.models import Recipe, Ingredient, Item
+from food.models import Ingredient, Item, Recipe
 
 
 class IngredientInline(admin.TabularInline):
@@ -11,16 +11,19 @@ class ItemInline(admin.TabularInline):
     model = Item
 
 
+@admin.register(Recipe)
 class RecipeAdmin(admin.ModelAdmin):
     inlines = [IngredientInline]
-    exclude = ('liked_by',)
+    exclude = ("liked_by",)
 
 
+@admin.register(Ingredient)
 class IngredientAdmin(admin.ModelAdmin):
     inlines = [ItemInline]
-    exclude = ('inventories', 'recipes',)
+    exclude = (
+        "inventories",
+        "recipes",
+    )
 
 
-admin.site.register(Recipe, RecipeAdmin)
-admin.site.register(Ingredient, IngredientAdmin)
 admin.site.register(Item)

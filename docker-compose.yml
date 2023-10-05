@@ -8,8 +8,6 @@ services:
       args:
         - UID=${UID:-1000}
         - GID=${GID:-1000}
-    container_name: hungry_django
-    platform: linux/x86_64
     volumes:
       - ./backend:/app:z
     environment:
@@ -21,6 +19,9 @@ services:
       - "8000:8000"
     stdin_open: true
     tty: true
+    # Empty entrypoint is important for pycharm debugger.
+    entrypoint: ""
+    command: /entrypoint.sh
     depends_on:
       - postgres
 

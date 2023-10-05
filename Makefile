@@ -15,10 +15,12 @@ compile-requirements:
 bash:
 	docker compose exec django bash
 
-
 create-superuser:
 	# Create a superuser, password is set through environment variable DJANGO_SUPERUSER_PASSWORD
 	docker compose exec django python manage.py createsuperuser
+
+create-dummy-data:
+	docker compose exec django python manage.py create_dummy_data
 
 create-migrations:
 	docker compose exec django python manage.py makemigrations

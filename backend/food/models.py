@@ -24,6 +24,9 @@ class Recipe(models.Model):
     photo = models.ImageField()
     portions = models.PositiveSmallIntegerField()
 
+    def __str__(self):
+        return self.name
+
 
 class Ingredient(models.Model):
     """
@@ -34,6 +37,9 @@ class Ingredient(models.Model):
     inventories = models.ManyToManyField(Inventory)
     recipes = models.ManyToManyField(Recipe)
 
+    def __str__(self):
+        return self.name
+
 
 class Item(models.Model):
     """
@@ -43,3 +49,6 @@ class Item(models.Model):
     ingredient = models.ForeignKey(Ingredient, on_delete=models.CASCADE)
     amount = models.PositiveIntegerField()
     unit = models.CharField(choices=Units.choices, max_length=3)
+
+    def __str__(self):
+        return f"{self.ingredient.name} - {self.unit}"

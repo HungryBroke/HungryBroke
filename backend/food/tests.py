@@ -2,9 +2,6 @@ from django.test import TestCase
 
 from food.models import Ingredient, Item, Recipe
 
-# Create your tests here.
-
-
 class RecipeTestCase(TestCase):
     def setUp(self):
         Recipe.objects.create(name="test-recipe", description="test-description")

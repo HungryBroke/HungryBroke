@@ -7,26 +7,26 @@ initialize-repository:
 
 
 run-project:
-	COLUMNS=150 DOCKER_BUILDKIT=1 COMPOSE_DOCKER_CLI_BUILD=1 docker-compose up --build
+	COLUMNS=150 DOCKER_BUILDKIT=1 COMPOSE_DOCKER_CLI_BUILD=1 docker compose up --build
 
 compile-requirements:
-	docker-compose exec django pip-compile /app/requirements/base.in --upgrade
+	docker compose exec django pip-compile /app/requirements/base.in --upgrade
 
 bash:
-	docker-compose exec django bash
+	docker compose exec django bash
 
 
 create-superuser:
 	# Create a superuser, password is set through environment variable DJANGO_SUPERUSER_PASSWORD
-	docker-compose exec django python manage.py createsuperuser
+	docker compose exec django python manage.py createsuperuser
 
 create-migrations:
-	docker-compose exec django python manage.py makemigrations
+	docker compose exec django python manage.py makemigrations
 
 migrate:
-	docker-compose exec django python manage.py migrate
+	docker compose exec django python manage.py migrate
 
 quick-migrate: create-migrations migrate
 
 test:
-	docker-compose exec -e "DJANGO_SETTINGS_MODULE=HungryBroke.settings.base" django pytest
+	docker compose exec -e "DJANGO_SETTINGS_MODULE=HungryBroke.settings.base" django pytest

@@ -3,9 +3,9 @@ from datetime import timedelta
 import pytest
 from django.test import TestCase
 
+from food.factories import IngredientFactory, ItemFactory, RecipeFactory
+from food.models import Ingredient, Item, Recipe  # assuming that you have these models
 from HungryBroke.schema import schema
-from food.factories import ItemFactory, IngredientFactory, RecipeFactory
-from food.models import Item, Ingredient, Recipe  # assuming that you have these models
 
 
 class RecipeTestCase(TestCase):
@@ -82,7 +82,7 @@ class GraphQLTests(TestCase):
             """
         mutation {
             addItem(data: { amount: 100, unit: "g", ingredient:{
-                set:"1"       
+                set:"1"
             } }) {
                 unit
                 amount

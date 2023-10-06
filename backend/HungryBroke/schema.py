@@ -1,7 +1,7 @@
 import strawberry
 from strawberry_django.mutations import mutations
 
-from food.types import Ingredient, Item, Recipe, ItemInput, IngredientInput, RecipeInput
+from food.types import Ingredient, IngredientInput, Item, ItemInput, Recipe, RecipeInput
 
 
 @strawberry.type

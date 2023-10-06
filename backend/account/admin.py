@@ -19,9 +19,5 @@ class InventoryAdmin(admin.ModelAdmin):
         "user",
     )  # display name and user in list
 
-    # make models name more readable in admin interface
     def __str__(self):
         return self.name
-
-
-# Register your models here.

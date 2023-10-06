@@ -1,6 +1,7 @@
 import strawberry
+from strawberry_django.mutations import mutations
 
-from food.types import Ingredient, Item, Recipe
+from food.types import Ingredient, Item, Recipe, ItemInput, IngredientInput, RecipeInput
 
 
 @strawberry.type
@@ -10,4 +11,14 @@ class Query:
     recipes: list[Recipe] = strawberry.django.field()
 
 
-schema = strawberry.Schema(query=Query)
+@strawberry.type
+class Mutation:
+    addItem: Item = mutations.create(ItemInput)
+    addIngredient: Ingredient = mutations.create(IngredientInput)
+    addRecipe: Recipe = mutations.create(RecipeInput)
+
+
+schema = strawberry.Schema(
+    query=Query,
+    mutation=Mutation,
+)

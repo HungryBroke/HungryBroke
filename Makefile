@@ -31,4 +31,4 @@ migrate:
 quick-migrate: create-migrations migrate
 
 test:
-	docker compose exec -e "DJANGO_SETTINGS_MODULE=HungryBroke.settings.base" django pytest
+	docker compose exec django pytest

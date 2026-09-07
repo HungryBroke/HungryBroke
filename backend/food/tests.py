@@ -53,8 +53,7 @@ class GraphQLTests(TestCase):
         RecipeFactory()
 
         # use the client to execute a query
-        response = schema.execute_sync(
-            """
+        response = schema.execute_sync("""
         {
             items {
                 amount
@@ -66,8 +65,7 @@ class GraphQLTests(TestCase):
             recipes {
                 name
             }
-        }"""
-        )
+        }""")
 
         # check the response data
         assert response.data["items"][0]["amount"]
@@ -78,8 +76,7 @@ class GraphQLTests(TestCase):
     @pytest.mark.django_db
     def test_mutation(self):
         IngredientFactory(id=1)
-        response = schema.execute_sync(
-            """
+        response = schema.execute_sync("""
         mutation {
             addItem(data: { amount: 100, unit: "g", ingredient:{
                 set:"1"
@@ -87,8 +84,7 @@ class GraphQLTests(TestCase):
                 unit
                 amount
             }
-        }"""
-        )
+        }""")
 
         # Check the response data
         assert response.data["addItem"]["unit"] == "g"
